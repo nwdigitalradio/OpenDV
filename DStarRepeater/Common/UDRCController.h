@@ -2,6 +2,7 @@
  *      UDRCController Copyright (C) 2016 by John Hays, K7VE
  *      based on GPIOController which is
  *	Copyright (C) 2012,2015 by Jonathan Naylor, G4KLX
+ *	Copyright (c) 2016 by Jeremy McDermond, NH6Z
  *
  *	This program is free software; you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,9 +28,12 @@ public:
 
 	virtual bool open();
 
-	virtual void getDigitalInputs(bool& inp1, bool& inp2, bool& inp3, bool& inp4, bool& inp5);
+	virtual void getDigitalInputs(bool& inp1, bool& inp2, bool& inp3,
+                                      bool& inp4, bool& inp5);
 
-	virtual void setDigitalOutputs(bool outp1, bool outp2, bool outp3, bool outp4, bool outp5, bool outp6, bool outp7, bool outp8);
+	virtual void setDigitalOutputs(bool outp1, bool outp2, bool outp3,
+                                       bool outp4, bool outp5, bool outp6,
+                                       bool outp7, bool outp8);
 
 	virtual void close();
 
