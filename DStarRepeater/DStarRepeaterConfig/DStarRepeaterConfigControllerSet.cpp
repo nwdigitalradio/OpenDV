@@ -44,6 +44,7 @@ m_time(NULL)
 
 #if defined(GPIO)
 	m_type->Append(wxT("GPIO"));
+	m_type->Append(wxT("UDRC"));
 #endif
 
 	m_type->Append(wxT("Velleman K8055 - 0"));
