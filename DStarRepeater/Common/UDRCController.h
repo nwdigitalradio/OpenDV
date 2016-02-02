@@ -17,36 +17,35 @@
 #ifndef	UDRCController_H
 #define	UDRCController_H
 
-#include "HardwareController.h"
+#include "ExternalController.h"
 
 #include <wx/wx.h>
 
-class CUDRCController : public IHardwareController {
+class CUDRCController : public CExternalController {
 public:
-	CUDRCController(unsigned int config);
+	CUDRCController(unsigned int config, bool pttInvert);
 	virtual ~CUDRCController();
 
 	virtual bool open();
 
-	virtual void getDigitalInputs(bool& inp1, bool& inp2, bool& inp3,
-                                      bool& inp4, bool& inp5);
+	virtual bool getDisable() const;
 
-	virtual void setDigitalOutputs(bool outp1, bool outp2, bool outp3,
-                                       bool outp4, bool outp5, bool outp6,
-                                       bool outp7, bool outp8);
+	virtual void setRadioTransmit(bool value);
+	virtual void setActive(bool value);
 
 	virtual void close();
 
+	virtual void* Entry();
+
 private:
+	enum m_repeaterMode {
+		MODE_AA;
+		MODE_DD;
+		MODE_FF;
+		MODE_AF;
+	};
+	void setMode(m_repeaterMode mode);
 	unsigned int m_config;
-	bool         m_outp1;
-	bool         m_outp2;
-	bool         m_outp3;
-	bool         m_outp4;
-	bool         m_outp5;
-	bool         m_outp6;
-	bool         m_outp7;
-	bool         m_outp8;
 };
 
 #endif
